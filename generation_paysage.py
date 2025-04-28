@@ -9,7 +9,7 @@ def generate_height_map(size):
         (size/2, size/2),
         (size/3, 2*size/3),
         (2*size/3, 2*size/3)
-    ]  # 5 centres d'îles
+    ]  # 5 centres d'iles
 
     for i in range(size): #haut - bas 
         row = []
@@ -18,7 +18,7 @@ def generate_height_map(size):
             for (cx, cy) in centers:
                 distance = ((i - cx)**2 + (j - cy)**2)**0.5
                 if distance < size/5:
-                    local_height = max(0, 40 - (distance * 1.5))
+                    local_height = max(0, 20 - (distance * 1.5))
 
                     # AJOUTER UN VOLCAN SI ON EST PRES DU CENTRE
                     volcano_center = (size/2, size/2)
@@ -56,7 +56,7 @@ def write_scad(height_map, filename="model.scad"):
         f.write('  translate([60, 3, -0.5])\n')
         f.write('     linear_extrude(height = 1)\n')
         f.write('        mirror([1,0,0])\n')
-        f.write('           text("IFT2125-H25", size = 6, font = "Arial", halign = "true");\n')
+        f.write('           text("MB- IFT2125-H25", size = 6, font = "Arial", halign = "true");\n')
         f.write('}\n')
 
         # Terrain (polyhedrons)
